@@ -7,11 +7,11 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig(({ command, mode }) => {
   // Load env file based on `mode`
   const env = loadEnv(mode, process.cwd(), '')
-  
   return {
     plugins: [
       vue(),
     ],
+    base:"/",
     server: {
       port: 3000,
       proxy: {
