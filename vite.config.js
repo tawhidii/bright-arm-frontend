@@ -14,14 +14,13 @@ export default defineConfig(({ command, mode }) => {
     ],
     server: {
       port: 3000,
-      // Add proxy configuration
-      // proxy: {
-      //   '/api/v': {
-      //     target: env.VITE_API_BASE_URL,
-      //     changeOrigin: true,
-      //     rewrite: (path) => path.replace(/^\/api/, '')
-      //   }
-      // }
+      proxy: {
+        '/api/v1': {
+          target: env.VITE_API_BASE_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/v1, '')
+        }
+      }
     },
     resolve: {
       alias: {
